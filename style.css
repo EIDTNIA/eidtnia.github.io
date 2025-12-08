@@ -1,7 +1,7 @@
 body {
   font-family: system-ui, sans-serif;
   margin: 2rem auto;
-  max-width: 480px;   /* 限制宽度，天然单列 */
+  max-width: 480px;
   background: #f7f7f7;
 }
 h1 {
@@ -25,9 +25,6 @@ input[type="number"] {
 .row {
   margin: .6rem 0;
 }
-.center {
-  text-align: center;
-}
 button {
   padding: .4rem 1.2rem;
 }
@@ -38,3 +35,14 @@ button {
 .hidden {
   display: none;
 }
+.err {
+  color: #e00;
+  font-size: .9rem;
+  margin-top: .4rem;
+}
+
+/* 装备下拉列表颜色 */
+option[data-color="red"]  { background: #ffeeee; color: #d00; }
+option[data-color="gold"] { background: #fff9e5; color: #b8860b; }
+option[data-color="purple"] { background: #f5eeff; color: #6b0ee0; }
+option[data-color="blue"]  { background: #eef5ff; color: #0066cc; }
