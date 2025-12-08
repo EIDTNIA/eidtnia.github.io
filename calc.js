@@ -27,8 +27,12 @@ function fillSelect() {
     const opt = document.createElement('option');
     opt.value = idx;
     opt.textContent = it.name;
-    const colors = ['red', 'gold', 'purple', 'blue'];
-    opt.setAttribute('data-color', colors[idx % 4]);
+    // ↓↓↓ 关键：直接从 json 读取 color 字段 ↓↓↓
+    opt.style.color = it.color;          // 文字颜色
+    opt.style.backgroundColor = it.color === 'red'   ? '#ffeeee' :
+                                it.color === 'gold'  ? '#fff9e5' :
+                                it.color === 'purple'? '#f5eeff' :
+                                                       '#eef5ff';
     PICK.appendChild(opt);
   });
   showParams();
@@ -122,3 +126,4 @@ function calc() {
   document.getElementById('points').innerHTML = listHtml;
   RESULT.classList.remove('hidden');
 }
+
