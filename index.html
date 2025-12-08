@@ -1,62 +1,60 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>装备维修计算器</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <h1>装备维修计算器</h1>
+<!-- 1. 模式选择 -->
+<section id="mode-sec">
+  <label><input type="radio" name="mode" value="in" checked /> 局内维修</label>
+  <label><input type="radio" name="mode" value="out" /> 局外维修</label>
+</section>
 
-  <section id="mode-sec">
-    <label><input type="radio" name="mode" value="in" checked /> 局内维修</label>
-    <label><input type="radio" name="mode" value="out" /> 局外维修</label>
-  </section>
+<!-- 2. 类别选择 -->
+<section id="kind-sec">
+  <label><input type="radio" name="kind" value="head" checked /> 头盔</label>
+  <label><input type="radio" name="kind" value="armor" /> 护甲</label>
+</section>
 
-  <section id="kind-sec">
-    <label><input type="radio" name="kind" value="head" checked /> 头盔</label>
-    <label><input type="radio" name="kind" value="armor" /> 护甲</label>
-  </section>
+<!-- 3. 具体装备 -->
+<section id="pick-sec">
+  <select id="pick"></select>
+</section>
 
-  <section id="pick-sec">
-    <select id="pick"></select>
-  </section>
+<!-- 4. 参数 -->
+<section id="params" class="hidden">
+  <h3>装备参数</h3>
+  <ul>
+    <li>初始上限：<span class="val" id="init"></span></li>
+    <li>最低可出售耐久：<span class="val" id="sell"></span></li>
+    <li>维修损耗：<span class="val" id="loss"></span></li>
+    <li>维修包效率：
+      <ul>
+        <li>自制：<span class="val" id="m1"></span></li>
+        <li>标准：<span class="val" id="m2"></span></li>
+        <li>精密：<span class="val" id="m3"></span></li>
+        <li>高级组合：<span class="val" id="m4"></span></li>
+      </ul>
+    </li>
+  </ul>
+</section>
 
-  <section id="params" class="hidden">
-    <h3>装备参数</h3>
-    <ul>
-      <li>初始上限：<span class="val" id="init"></span></li>
-      <li>最低可出售耐久：<span class="val" id="sell"></span></li>
-      <li>维修损耗：<span class="val" id="loss"></span></li>
-      <li>维修包效率：
-        <ul>
-          <li>自制：<span class="val" id="m1"></span></li>
-          <li>标准：<span class="val" id="m2"></span></li>
-          <li>精密：<span class="val" id="m3"></span></li>
-          <li>高级组合：<span class="val" id="m4"></span></li>
-        </ul>
-      </li>
-    </ul>
-  </section>
-
-  <section id="input-sec">
+<!-- 5. 输入 -->
+<section id="input-sec">
+  <div class="row">
     <label>当前上限（1 位小数）：
       <input type="number" id="cur" min="0" step="0.1" />
     </label>
+  </div>
+  <div class="row">
     <label>剩余耐久（1 位小数）：
       <input type="number" id="rem" min="0" step="0.1" />
     </label>
+  </div>
+  <div class="row center">
     <button id="calc">计算</button>
-  </section>
+  </div>
+</section>
 
-  <section id="result" class="hidden">
-    <h3>计算结果</h3>
-    <p id="can-repair"></p>
-    <p id="after"></p>
-    <p id="can-sell"></p>
-    <ul id="points"></ul>
-  </section>
-
-  <script src="calc.js"></script>
-</body>
-</html>
+<!-- 6. 结果 -->
+<section id="result" class="hidden">
+  <h3>计算结果</h3>
+  <p id="can-repair"></p>
+  <p id="after"></p>
+  <p id="can-sell"></p>
+  <ul id="points"></ul>
+</section>
