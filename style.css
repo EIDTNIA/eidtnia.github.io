@@ -1,0 +1,40 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 2rem auto;
+  max-width: 480px;   /* 限制宽度，天然单列 */
+  background: #f7f7f7;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+section {
+  margin-bottom: 1.2rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: .8rem 1rem;
+  border-radius: 4px;
+}
+label {
+  margin-right: 1rem;
+}
+input[type="number"] {
+  width: 100px;
+  margin-left: .5rem;
+}
+.row {
+  margin: .6rem 0;
+}
+.center {
+  text-align: center;
+}
+button {
+  padding: .4rem 1.2rem;
+}
+.val {
+  font-weight: bold;
+  color: #0057d9;
+}
+.hidden {
+  display: none;
+}
