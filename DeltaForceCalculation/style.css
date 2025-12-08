@@ -1,0 +1,15 @@
+body {
+    background: #222;
+    color: #fff;
+    font-family: "Microsoft YaHei";
+    padding: 20px;
+}
+
+.box {
+    margin: 10px 0;
+}
+
+label {
+    display: inline-block;
+    width: 140px;
+}
