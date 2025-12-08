@@ -1,11 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
-  <meta charset="utf-8">
-  <title>我的第一个 GitHub Pages</title>
+<meta charset="UTF-8">
+<title>耐久计算器</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello，GitHub Pages！</h1>
-  <p>站点已上线，后续慢慢美化。</p>
+
+<h2>耐久计算器（网页版）</h2>
+
+<div class="box">
+    <label>头序号：</label>
+    <select id="headSelect">
+        <option value="">--不选--</option>
+    </select>
+</div>
+
+<div class="box">
+    <label>甲序号：</label>
+    <select id="armorSelect">
+        <option value="">--不选--</option>
+    </select>
+</div>
+
+<div class="box">
+    <label>当前耐久：</label>
+    <input id="cur" type="number">
+</div>
+
+<div class="box">
+    <label>当前耐久上限：</label>
+    <input id="max" type="number">
+</div>
+
+<hr>
+
+<div class="box"><label>维修后耐久上限：</label><span id="resultMax"></span></div>
+<div class="box"><label>局内是否可出售：</label><span id="check1"></span></div>
+
+<div class="box"><label>维修包消耗倍率1：</label><span id="c1"></span></div>
+<div class="box"><label>维修包消耗倍率2：</label><span id="c2"></span></div>
+<div class="box"><label>维修包消耗倍率3：</label><span id="c3"></span></div>
+<div class="box"><label>维修包消耗倍率4：</label><span id="c4"></span></div>
+
+<script src="script.js"></script>
 </body>
 </html>
