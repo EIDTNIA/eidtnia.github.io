@@ -74,7 +74,8 @@ function clearErr() {
 }
 
 function calc() {
-  const mode = [...MODE].find(r => r.checked).value;
+//  const mode = [...MODE].find(r => r.checked).value;
+  const mode = 'in';          // 固定为局内维修，UI已删
   const k = [...KIND].find(r => r.checked).value;
   const idx = PICK.value;
   const it = CONFIG[k][idx];
@@ -133,5 +134,26 @@ const listHtml = mode === 'in'
   document.getElementById('after').textContent = `维修后耐久上限：${after}`;
   document.getElementById('can-sell').textContent = `出售状态：${canSell}`;
   document.getElementById('points').innerHTML = listHtml;
+  
+  /* ====== 额外展示一条局外维修结论 ====== */
+(function () {
+  const floor = k === 'head' ? 5 : 10;
+  if (Math.floor(cur) < floor) {
+    document.getElementById('out-repair-info').textContent =
+      `局外维修：当前${k === 'head' ? '头盔' : '护甲'}上限（${Math.floor(cur)}）低于${floor}，不可维修`;
+    return;
+  }
+
+  // 用out规则再算一次
+  let outAfter = cur - cur * ratio * (it.loss - Math.log10(cur / it.init));
+  outAfter = Math.floor(outAfter);
+  if (outAfter < 1) outAfter = 1;
+
+  const canSellOut = outAfter >= it.sell ? '可以出售' : '不可出售';
+  document.getElementById('out-repair-info').textContent =
+    `局外维修后耐久上限：${outAfter}，出售状态：${canSellOut}`;
+})();
+  
   RESULT.classList.remove('hidden');
 }
+
