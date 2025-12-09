@@ -109,7 +109,7 @@ function calc() {
     { name: '自制', eff: it.m1 },
     { name: '标准', eff: it.m2 },
     { name: '精密', eff: it.m3 },
-    { name: '高级组合', eff: it.m4 }
+    { name: '高级', eff: it.m4 }
   ];
   const listHtml = packs.map(p => {
     if (delta <= 0) return `<li>${p.name}：无需维修</li>`;
@@ -126,4 +126,5 @@ function calc() {
   document.getElementById('points').innerHTML = listHtml;
   RESULT.classList.remove('hidden');
 }
+
 
