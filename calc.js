@@ -111,12 +111,21 @@ function calc() {
     { name: '精密', eff: it.m3 },
     { name: '高级', eff: it.m4 }
   ];
-  const listHtml = packs.map(p => {
-    if (delta <= 0) return `<li>${p.name}：无需维修</li>`;
-    if (p.eff <= 0) return `<li>${p.name}：无效效率</li>`;
-    const pts = Math.round(delta / p.eff);
-    return `<li>${p.name}：${pts} 点</li>`;
-  }).join('');
+//  const listHtml = packs.map(p => {
+//    if (delta <= 0) return `<li>${p.name}：无需维修</li>`;
+//    if (p.eff <= 0) return `<li>${p.name}：无效效率</li>`;
+//    const pts = Math.round(delta / p.eff);
+//    return `<li>${p.name}：${pts} 点</li>`;
+//  }).join('');
+
+const listHtml = mode === 'in'
+  ? packs.map(p => {
+      if (delta <= 0) return `<li>${p.name}：无需维修</li>`;
+      if (p.eff <= 0) return `<li>${p.name}：无效效率</li>`;
+      const pts = Math.round(delta / p.eff);
+      return `<li>${p.name}：${pts} 点</li>`;
+    }).join('')
+  : '';          // ←←← out 模式直接留空
 
   const canSell = after >= it.sell ? '可以出售' : '不可出售';
 
@@ -126,5 +135,3 @@ function calc() {
   document.getElementById('points').innerHTML = listHtml;
   RESULT.classList.remove('hidden');
 }
-
-
